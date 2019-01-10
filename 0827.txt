@@ -1,0 +1,42 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class Test0827Controller extends Controller
+{
+	public function index()
+	{
+		$this->assign('title','测试');
+		$this->display('Abc:xxx');//表示Abc目录下的xxx文件
+	}
+}
+?>
+控制器中的display方法应用：
+1)$this->display();调用本方法名的视图文件
+2)$this->display('xxx');表示调用指定的视图文件
+3)$this->display('Abc:xxx');表示调用Abc目录下的xxx视图文件  只要在Home\View目录中存在Abc就行
+    常用于调用公用的头文件(header.html)和脚文件(footer.html)
+4)$this->display('主题名:控制器名:视图名');调用某个主题目录下某文件夹中的模板文件
+5)$this->display('./Public/ok.html');在项目目录/public目录下创建ok.html
+
+display方法与show方法
+1）display方法必须调用模板文件
+      show方法不需要模板文件，能直接输出出
+2）display方法中的参数，是文件名
+      show方法中的参数直接输出，不以文件名参数也不指定其他参数则输出控制器中制定方法名的模板文件
+
+------
+
+模板的提取： fetch  --  提取
+$this->fetch('带路径的模板文件名');
+fetch()用于获取指定路径下的文件名，并把该文件内容的每一行看作数组元素填充到指定变量中
+
+在 Home\conf\config.php中定义
+'__JSPATH__'=>__ROOT__.'/Public/JavaScript/',
+'__IMGPATH__'=>__ROOT__.'/Public/Image/',
+'__CSSPATH__'=>__ROOT__.'/Public/CSS/'
+
+
+
+
+
+
