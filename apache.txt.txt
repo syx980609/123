@@ -1,0 +1,22 @@
+1)找到最后一行LoadModule(加载模块)
+	先回车5-6次 腾出空挡
+  写上：LoadModule php5_module E:\www\server\php\php5apache2_2.dll
+  意思是让aqache到指定的盘符/路径中找到php5apache2_2.dll文件并加载过来
+2)找到DocumentRoot "E:/www/server/apache/htdocs"该行
+  加上#号注释
+  复制修改为DocumentRoot "E:/www/web"
+ DocumentRoot  --文档根目录,是指配置的网站最高目录
+3)找到<Directory "E:/www/server/apache/htdocs">该行
+  加上#号注释
+  复制修改为:<Directory "E:/www/web">
+4)找到DirectoryIndex index.html该行
+  想正文中加入 index.php,加入后,确保前后各保留一个空格
+  如下:DirectoryIndex index.php index.html
+5)找到
+  AddType application/x-compress .Z
+  AddType application/x-gzip .gz .tgz
+
+  复制该两行到下方空白处,并修改为:
+  AddType application/x-httpd-php .php
+  AddType application/x-httpd-php .html
+  
